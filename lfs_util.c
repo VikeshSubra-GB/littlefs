@@ -24,7 +24,8 @@ uint32_t lfs_crc(uint32_t crc, const void *buffer, size_t size) {
 
     const uint8_t *data = buffer;
 
-    for (size_t i = 0; i < size; i++) {
+    size_t i;
+    for (i = 0; i < size; i++) {
         crc = (crc >> 4) ^ rtable[(crc ^ (data[i] >> 0)) & 0xf];
         crc = (crc >> 4) ^ rtable[(crc ^ (data[i] >> 4)) & 0xf];
     }
